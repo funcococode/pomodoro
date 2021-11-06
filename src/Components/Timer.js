@@ -70,7 +70,7 @@ export default class Timer extends Component {
 
 	updateTimer(){
 		if(this.state.isActive){
-			this.state.totalSeconds--;
+			this.setState({totalSeconds: this.state.totalSeconds-1});
 			this.setState({
 				seconds : ~~(this.state.totalSeconds % 60),
 				minutes : ~~(this.state.totalSeconds / 60),	
@@ -94,6 +94,7 @@ export default class Timer extends Component {
 				<div id="lockUnlockIcon">
 					{this.state.isActive ? <ion-icon name="lock-closed-outline"></ion-icon> : <ion-icon name="lock-open-outline"></ion-icon>}
 				</div>
+				<div id="timeScale"></div>
 			</div>
 		)
 	}
